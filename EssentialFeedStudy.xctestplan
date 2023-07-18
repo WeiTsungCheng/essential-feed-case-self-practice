@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "0547BE33-18CB-426B-BDA1-682C1BDE57E0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "identifier" : "F47C3B602A5A9BD200B1F60E",
+        "name" : "EssentialFeedStudyTests"
+      }
+    }
+  ],
+  "version" : 1
+}
