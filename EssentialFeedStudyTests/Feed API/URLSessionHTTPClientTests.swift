@@ -19,10 +19,12 @@ class URLSessionHTTPClient {
     
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
         
-        session.dataTask(with: url) {_, _, error in
+        session.dataTask(with: url) {data, response, error in
             if let error = error {
                 completion(.failure(error))
-            } else {
+            } else if let data = data, data.count > 0, let response = response as? HTTPURLResponse {
+                completion(.success(data, response))
+            } else  {
                 completion(.failure(UnexpectedValuesRepresentation()))
             }
         }.resume()
@@ -31,29 +33,29 @@ class URLSessionHTTPClient {
 
 final class URLSessionHTTPClientTests: XCTestCase {
     
-    override class func setUp() {
+    override func setUp() {
         super.setUp()
         URLProtocolStub.startInterceptingRequests()
     }
     
-    override class func tearDown() {
+    override func tearDown() {
         super.tearDown()
         URLProtocolStub.stopInterceptingRequests()
     }
     
     func test_getFromURL_performsGETRequestWithURL() {
-        
+
         let url = anyURL()
         let exp = expectation(description: "Wait for request")
-        
+
         URLProtocolStub.observeRequests { request in
             XCTAssertEqual(request.url, url)
             XCTAssertEqual(request.httpMethod, "GET")
             exp.fulfill()
         }
-        
+
         makeSUT().get(from: url) { _ in }
-        wait(for: [exp], timeout: 3)
+        wait(for: [exp], timeout: 1.0)
     }
 
     // Valid Result => (Data? = nil, URLResponse? = nil, Error? = value)
@@ -84,11 +86,36 @@ final class URLSessionHTTPClientTests: XCTestCase {
         
     }
     
+    func test_getFromURL_succeedOnHTTPURLResponseWithData() {
+       
+        let data = anyData()
+        let response = anyHTTPURLResponse()
+        URLProtocolStub.stub(data: data, response: response, error: nil)
+     
+        let exp = expectation(description: "wait for completion")
+
+        makeSUT().get(from: anyURL()) { result in
+            switch result {
+            case let .success(receivedData, receivedResponse):
+                XCTAssertEqual(receivedData, data)
+                XCTAssertEqual(receivedResponse.url, response.url)
+                XCTAssertEqual(receivedResponse.statusCode, response.statusCode)
+                
+            default:
+                XCTFail("Expected success, got \(result) instead")
+            }
+
+            exp.fulfill()
+        }
+
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> URLSessionHTTPClient {
         let sut = URLSessionHTTPClient()
-        trackForMemoryLeak(sut, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
         
         return sut
     }
@@ -112,7 +139,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
             exp.fulfill()
         }
         
-        wait(for: [exp], timeout: 3.0)
+        wait(for: [exp], timeout: 1.0)
         
         return receivedError
     }
@@ -138,9 +165,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
        return URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
     }
     
-    
-    
-    
     private class URLProtocolStub: URLProtocol {
        
         private static var stubs: Stub?
@@ -153,7 +177,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         }
         
         static func stub(data: Data?, response: URLResponse?, error: Error? = nil) {
-          
             stubs = Stub(data: data, response: response, error: error)
         }
         
@@ -173,7 +196,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
         
         override class func canInit(with request: URLRequest) -> Bool {
             requestObserver?(request)
-            return URLProtocolStub.stubs != nil
+            return true
         }
         
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {
