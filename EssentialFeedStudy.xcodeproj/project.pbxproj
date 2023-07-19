@@ -53,6 +53,7 @@
 		F4D1F05F2A66D228002859B6 /* EssentialFeedStudyAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedStudyAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D1F0612A66D228002859B6 /* EssentialFeedStudyAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedStudyAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		F4D1F06A2A68192F002859B6 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
+		F4D1F06D2A686CB3002859B6 /* EssentialFeedStudyAPIEndToEndTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = EssentialFeedStudyAPIEndToEndTests.xctestplan; sourceTree = SOURCE_ROOT; };
 		F4FC62A22A6269F600853612 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		F4FD17A62A646E6100E0B37E /* XCTestCase+MemoryTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +100,7 @@
 			children = (
 				F4D1F06A2A68192F002859B6 /* CI.xctestplan */,
 				F4D1F05A2A66CF72002859B6 /* EssentialFeedStudy.xctestplan */,
+				F4D1F06D2A686CB3002859B6 /* EssentialFeedStudyAPIEndToEndTests.xctestplan */,
 				F47C3B5B2A5A9BD200B1F60E /* EssentialFeedStudy */,
 				F47C3B652A5A9BD200B1F60E /* EssentialFeedStudyTests */,
 				F4D1F0602A66D228002859B6 /* EssentialFeedStudyAPIEndToEndTests */,
