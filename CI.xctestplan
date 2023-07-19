@@ -1,0 +1,40 @@
+{
+  "configurations" : [
+    {
+      "id" : "E6720D52-37C3-4CB6-89B5-CA8BE6F9A2DB",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+          "identifier" : "F47C3B582A5A9BD200B1F60E",
+          "name" : "EssentialFeedStudy"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "identifier" : "F4D1F05E2A66D228002859B6",
+        "name" : "EssentialFeedStudyAPIEndToEndTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "identifier" : "F47C3B602A5A9BD200B1F60E",
+        "name" : "EssentialFeedStudyTests"
+      }
+    }
+  ],
+  "version" : 1
+}
