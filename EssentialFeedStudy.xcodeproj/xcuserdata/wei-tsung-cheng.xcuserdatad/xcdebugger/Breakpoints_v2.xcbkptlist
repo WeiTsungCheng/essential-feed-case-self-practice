@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "CacheFeedCaseTests"
-            landmarkType = "3">
+            landmarkName = "test_save_doesNotDeliverInsertionErrorAfterSUTInstanceHasBeenDeallocated()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
