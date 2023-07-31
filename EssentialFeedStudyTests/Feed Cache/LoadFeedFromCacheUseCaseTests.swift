@@ -25,6 +25,7 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
     }
     
     func test_load_failsOnRetrivalError() {
+        
         let (sut, store) = makeSUT()
         let retrievalError = anyNSError()
         
@@ -39,6 +40,19 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         
         expect(sut, toCompleteWith: .success([])) {
             store.completeRetrievalWithEmptyCache()
+        }
+    }
+    
+    func test_load_deliversCachedImagesOnLessThanSevenDaysOldCache() {
+        
+        let feed = uniqueImageFeed()
+        let fixedCurrentDate = Date()
+        
+        let lessThanSevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
+        let (sut, store) = makeSUT (currentDate: { fixedCurrentDate })
+        
+        expect(sut, toCompleteWith: .success(feed.models)) {
+            store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
         }
     }
     
@@ -79,9 +93,36 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
     
     }
     
+    private func uniqueImage() -> FeedImage {
+        return FeedImage(id: UUID(),
+                        description: "any",
+                        location: "any",
+                        url: anyURL())
+    }
+    
+    private func anyURL() -> URL {
+        return URL(string: "http://any-url.com")!
+    }
+    
+    private func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
+        let models = [uniqueImage(), uniqueImage()]
+        let local = models.map { LocalFeedImage(id: $0.id, description: $0.description, location: $0.description, url: $0.url) }
+        
+        return (models, local)
+    }
+    
     private func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
     }
     
+}
+
+private extension Date {
+    func adding(days: Int) -> Date {
+        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+    }
     
+    func adding(seconds: TimeInterval) -> Date {
+        return self + seconds
+    }
 }
