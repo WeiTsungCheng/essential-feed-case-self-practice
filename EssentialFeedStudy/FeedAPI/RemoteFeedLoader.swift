@@ -53,9 +53,6 @@ public final class RemoteFeedLoader: FeedLoader {
 }
 
 
-
-
-
 private extension Array where Element == RemoteFeedItem {
     
     func toModels() -> [FeedImage] {
