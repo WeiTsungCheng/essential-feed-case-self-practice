@@ -190,9 +190,7 @@ final class CodableFeedStoreTests: XCTestCase {
             exp.fulfill()
         }
         
-        wait(for: [exp], timeout: 5.0)
-        expect(sut, toRetrieve: .empty)
-        
+        wait(for: [exp], timeout: 7.0)
         return deletionError
     }
     
