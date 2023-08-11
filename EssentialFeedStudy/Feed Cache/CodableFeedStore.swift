@@ -79,7 +79,7 @@ public class CodableFeedStore: FeedStore {
         }
     }
     
-    public func deleteCachedFeed(completion: @escaping DeleteCompletion) {
+    public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         
         let storeURL = self.storeURL
         

@@ -24,21 +24,25 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
 
     func test_retrieve_deliverEmptyOnEmptyCache() {
         let sut = makeSUT()
+        
         assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
+        
         assertThatRetrieveHasNoSideEffectsOnEmptyCache(on: sut)
     }
     
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
         let sut = makeSUT()
+        
         assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let sut = makeSUT()
+        
         assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on: sut)
     }
     
@@ -60,16 +64,19 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     
     func test_insert_deliverNoErrorOnEmptyCache() {
         let sut = makeSUT()
+        
         assertThatInsertDeliversNoErrorOnEmptyCache(on: sut)
     }
     
     func test_insert_deliversNoErrorOnNonEmptyCache() {
         let sut = makeSUT()
+        
         assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     func test_insert_overridesPreviouslyInsertedCacheValues() {
         let sut = makeSUT()
+        
         assertThatInsertOverridesPreviouslyInsertedCacheValues(on: sut)
     }
 

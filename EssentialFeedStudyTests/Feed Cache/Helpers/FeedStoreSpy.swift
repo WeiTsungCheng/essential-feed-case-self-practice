@@ -18,12 +18,12 @@ class FeedStoreSpy: FeedStore {
     
     private(set) var receivedMessages = [ReceivedMessage]()
     
-    private var deletionCompletions = [DeleteCompletion]()
+    private var deletionCompletions = [DeletionCompletion]()
     private var insertionCompletions = [InsertionCompletion]()
     private var retrievalCompletions = [RetrievalCompletion]()
     
     // delete
-    func deleteCachedFeed(completion: @escaping DeleteCompletion) {
+    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
 
         deletionCompletions.append(completion)
         receivedMessages.append(.deleteCachedFeed)
