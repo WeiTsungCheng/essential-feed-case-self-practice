@@ -19,8 +19,7 @@ public final class CoreDataFeedStore: FeedStore {
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
        
-        let context = self.context
-        context.perform {
+        perform { context in
             do {
                 let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
                 request.returnsObjectsAsFaults = false
@@ -36,14 +35,12 @@ public final class CoreDataFeedStore: FeedStore {
                 completion(.failure(error))
             }
         }
-
         
     }
     
     public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
         
-        let context = self.context
-        context.perform {
+        perform { context in
             do {
                 let managedCache = try ManagedCache.newUniqueInstance(in: context)
 
@@ -62,18 +59,21 @@ public final class CoreDataFeedStore: FeedStore {
     
     public func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         
-        let context = self.context
-        context.perform {
+        perform { context in
             do {
                 try ManagedCache.find(in: context).map(context.delete).map(context.save)
                 completion(nil)
             } catch {
                 completion(error)
             }
-            
         }
-      
     }
+    
+    private func perform(_ action: @escaping(NSManagedObjectContext) -> Void) {
+        let context = self.context
+        context.perform { action(context) }
+    }
+    
 }
 
 private extension NSPersistentContainer {
