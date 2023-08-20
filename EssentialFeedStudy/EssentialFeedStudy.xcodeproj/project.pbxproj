@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F406B4932A91F6B100EFD3E9 /* EssentialFeedStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47C3B592A5A9BD200B1F60E /* EssentialFeedStudy.framework */; platformFilter = ios; };
 		F406B4982A91FBF200EFD3E9 /* XCTestCase+MemoryTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD17A62A646E6100E0B37E /* XCTestCase+MemoryTracking.swift */; };
+		F406B49A2A92308000EFD3E9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406B4992A92308000EFD3E9 /* FeedViewController.swift */; };
 		F40D621D2A8CE650009D2748 /* XCTestCase+MemoryTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD17A62A646E6100E0B37E /* XCTestCase+MemoryTracking.swift */; };
 		F40D626C2A8F5145009D2748 /* EssentailFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40D62642A8F5145009D2748 /* EssentailFeediOS.framework */; };
 		F43424212A85656800CE0ED1 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43424202A85656800CE0ED1 /* FeedStoreSpecs.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		F406B48C2A8F5D9C00EFD3E9 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
+		F406B4992A92308000EFD3E9 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F40D62642A8F5145009D2748 /* EssentailFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentailFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F40D626B2A8F5145009D2748 /* EssentailFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentailFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43424202A85656800CE0ED1 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		F40D62652A8F5145009D2748 /* EssentailFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				F406B4992A92308000EFD3E9 /* FeedViewController.swift */,
 			);
 			path = EssentailFeediOS;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				TargetAttributes = {
 					F40D62632A8F5145009D2748 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1420;
 					};
 					F40D626A2A8F5145009D2748 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -617,6 +621,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F406B49A2A92308000EFD3E9 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +734,7 @@
 		F40D62742A8F5145009D2748 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -755,6 +761,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -763,6 +770,7 @@
 		F40D62752A8F5145009D2748 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -798,6 +806,7 @@
 		F40D62772A8F5145009D2748 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -818,6 +827,7 @@
 		F40D62782A8F5145009D2748 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
