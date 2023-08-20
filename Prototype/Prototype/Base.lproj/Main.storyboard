@@ -113,8 +113,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="FeedImageContainer" destination="7Jt-Uy-FuK" id="Zrn-VX-BLZ"/>
                                     <outlet property="descriptionLabel" destination="qTC-rm-Hug" id="3pF-Dw-4f0"/>
+                                    <outlet property="feedImageContainer" destination="7Jt-Uy-FuK" id="gNW-jQ-rHX"/>
                                     <outlet property="feedImageView" destination="IND-mH-86g" id="Dxp-dn-H9L"/>
                                     <outlet property="locationContainer" destination="y2X-zW-j9i" id="sUs-bx-lHb"/>
                                     <outlet property="locationLabel" destination="PBB-Wl-Zlm" id="Ofa-tk-vo5"/>
