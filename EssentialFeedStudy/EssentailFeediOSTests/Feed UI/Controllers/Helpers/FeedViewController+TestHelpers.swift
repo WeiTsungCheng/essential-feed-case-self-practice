@@ -1,5 +1,5 @@
 //
-//  UIViewController+TestHelpers.swift
+//  FeedViewController+TestHelpers.swift
 //  EssentailFeediOSTests
 //
 //  Created by WEI-TSUNG CHENG on 2023/8/25.
