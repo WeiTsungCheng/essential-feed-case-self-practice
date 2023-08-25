@@ -59,6 +59,7 @@
 		F4E333732A985E650060451D /* UIViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E333722A985E650060451D /* UIViewController+TestHelpers.swift */; };
 		F4E333752A9867200060451D /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E333742A9867200060451D /* FeedImageCell+TestHelpers.swift */; };
 		F4E333772A9867C20060451D /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E333762A9867C20060451D /* FeedViewControllerTests+LoaderSpy.swift */; };
+		F4E333792A9868FC0060451D /* FeedViewControllerTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E333782A9868FC0060451D /* FeedViewControllerTests+Assertions.swift */; };
 		F4FC62A32A6269F600853612 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FC62A22A6269F600853612 /* URLSessionHTTPClientTests.swift */; };
 		F4FD17A72A646E6100E0B37E /* XCTestCase+MemoryTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD17A62A646E6100E0B37E /* XCTestCase+MemoryTracking.swift */; };
 /* End PBXBuildFile section */
@@ -154,6 +155,7 @@
 		F4E333722A985E650060451D /* UIViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		F4E333742A9867200060451D /* FeedImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		F4E333762A9867C20060451D /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
+		F4E333782A9868FC0060451D /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
 		F4FC62A22A6269F600853612 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		F4FD17A62A646E6100E0B37E /* XCTestCase+MemoryTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -407,6 +409,7 @@
 				F4E333722A985E650060451D /* UIViewController+TestHelpers.swift */,
 				F4E333742A9867200060451D /* FeedImageCell+TestHelpers.swift */,
 				F4E333762A9867C20060451D /* FeedViewControllerTests+LoaderSpy.swift */,
+				F4E333782A9868FC0060451D /* FeedViewControllerTests+Assertions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4E333732A985E650060451D /* UIViewController+TestHelpers.swift in Sources */,
+				F4E333792A9868FC0060451D /* FeedViewControllerTests+Assertions.swift in Sources */,
 				F406B4982A91FBF200EFD3E9 /* XCTestCase+MemoryTracking.swift in Sources */,
 				F4E3336C2A985A050060451D /* UIButton+TestHelpers.swift in Sources */,
 				F4D0845F2A91C44A0038754C /* FeedViewControllerTests.swift in Sources */,
