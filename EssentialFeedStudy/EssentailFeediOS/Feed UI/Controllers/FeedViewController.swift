@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EssentialFeedStudy
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
