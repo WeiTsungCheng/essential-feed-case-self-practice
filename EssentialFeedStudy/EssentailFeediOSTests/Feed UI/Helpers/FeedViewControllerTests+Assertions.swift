@@ -9,7 +9,7 @@ import XCTest
 import EssentialFeedStudy
 import EssentailFeediOS
 
-extension FeedViewControllerTests {
+extension FeedUIIntegrationTests {
     
     internal func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
