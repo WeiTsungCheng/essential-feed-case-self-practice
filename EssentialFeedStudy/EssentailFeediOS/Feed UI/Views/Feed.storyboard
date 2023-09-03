@@ -15,13 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="RcC-8s-TPx">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="RcC-8s-TPx" customClass="ErrorView" customModule="EssentailFeediOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="16" id="vHE-0S-tqb"/>
-                            </constraints>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="1yn-P1-QYR">
                             <rect key="frame" x="0.0" y="673" width="393" height="16"/>
@@ -150,6 +147,9 @@
                             <action selector="refresh" destination="xxA-rh-U7u" eventType="valueChanged" id="nGp-HN-HzO"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="errorView" destination="RcC-8s-TPx" id="2D3-9w-lf9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPp-oh-ClI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
