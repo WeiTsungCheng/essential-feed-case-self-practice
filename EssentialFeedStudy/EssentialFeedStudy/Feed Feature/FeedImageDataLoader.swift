@@ -5,8 +5,7 @@
 //  Created by WEI-TSUNG CHENG on 2023/8/25.
 //
 
-import UIKit
-import EssentialFeedStudy
+import Foundation
 
 public protocol FeedImageDataLoaderTask {
     func cancel()
