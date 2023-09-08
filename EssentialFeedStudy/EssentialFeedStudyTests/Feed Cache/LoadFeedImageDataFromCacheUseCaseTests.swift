@@ -11,22 +11,11 @@ import EssentialFeedStudy
 class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
     
     func test_init_doesNotMessageStoreUponCreation() {
-        
         let (_, store) = makeSUT()
         
         XCTAssertTrue(store.receivedMessages.isEmpty)
     }
-    
-    func test_saveImageDataForURL_requestsImageDataInsertionForURL() {
-        let (sut, store) = makeSUT()
-        let url = anyURL()
-        let data = anyData()
-
-        sut.save(data: data, for: url) { _ in }
-        XCTAssertEqual(store.receivedMessages, [.insert(data: data, for: url)])
-    }
-    
-    
+        
     func test_loadImageDataFromURL_requestsStoredDataForURL() {
         let (sut, store) = makeSUT()
         let url = anyURL()
