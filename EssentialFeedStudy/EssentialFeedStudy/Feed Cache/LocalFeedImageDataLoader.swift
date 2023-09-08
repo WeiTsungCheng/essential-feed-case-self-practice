@@ -9,8 +9,21 @@ import Foundation
 
 public final class LocalFeedImageDataLoader: FeedImageDataLoader {
     
-    private class Task: FeedImageDataLoaderTask {
-        
+    private let store: FeedImageDataStore
+    
+    public init(store: FeedImageDataStore) {
+        self.store = store
+    }
+}
+
+extension LocalFeedImageDataLoader {
+    
+    public enum LoadError: Swift.Error {
+        case failed
+        case notFound
+    }
+    
+    private final class LoadImageDataTask: FeedImageDataLoaderTask {
         private var completion: ((FeedImageDataLoader.Result) -> Void)?
         
         public init(_ completion: (@escaping (FeedImageDataLoader.Result) -> Void)) {
@@ -30,20 +43,9 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         }
     }
     
-    public enum LoadError: Swift.Error {
-        case failed
-        case notFound
-    }
-    
-    private let store: FeedImageDataStore
-    
-    public init(store: FeedImageDataStore) {
-        self.store = store
-    }
-    
     public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> EssentialFeedStudy.FeedImageDataLoaderTask {
         
-        let task = Task(completion)
+        let task = LoadImageDataTask(completion)
         store.retrieve(dataForURL: url) { [weak self] result in
             
             guard self != nil else { return }
@@ -58,10 +60,19 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         return task
     }
     
-    public typealias SaveResult = Result<Void, Swift.Error>
+}
+
+extension LocalFeedImageDataLoader {
     
-    public func save(data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
-        store.insert(data, for: url) { _ in }
+    public typealias SaveResult = Result<Void, Swift.Error>
+    public enum SaveError: Error {
+        case failed
     }
     
+    public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(data, for: url) { result in
+            
+            completion(.failure(SaveError.failed))
+        }
+    }
 }
