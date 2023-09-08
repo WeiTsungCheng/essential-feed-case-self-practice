@@ -30,7 +30,7 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         }
     }
     
-    public enum Error: Swift.Error {
+    public enum LoadError: Swift.Error {
         case failed
         case notFound
     }
@@ -49,9 +49,9 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
             guard self != nil else { return }
             
             task.complete(with: result
-                .mapError{ _ in Error.failed}
+                .mapError{ _ in LoadError.failed}
                 .flatMap{ data in
-                    data.map { .success($0) } ?? .failure(Error.notFound)
+                    data.map { .success($0) } ?? .failure(LoadError.notFound)
                 })
         }
         
