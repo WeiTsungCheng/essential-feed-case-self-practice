@@ -20,7 +20,7 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         public func complete(with result: FeedImageDataLoader.Result) {
             completion?(result)
         }
-
+        
         public func cancel() {
             preventFurtherCompletion()
         }
@@ -47,7 +47,7 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         store.retrieve(dataForURL: url) { [weak self] result in
             
             guard self != nil else { return }
-
+            
             task.complete(with: result
                 .mapError{ _ in Error.failed}
                 .flatMap{ data in
@@ -56,6 +56,12 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
         }
         
         return task
+    }
+    
+    public typealias SaveResult = Result<Void, Swift.Error>
+    
+    public func save(data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(data, for: url) { _ in }
     }
     
 }
