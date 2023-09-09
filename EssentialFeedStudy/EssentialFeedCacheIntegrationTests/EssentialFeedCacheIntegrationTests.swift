@@ -8,8 +8,8 @@
 import XCTest
 import EssentialFeedStudy
 
-final class EssentialFeedCacheIntegrationTests: XCTestCase {
-    
+class EssentialFeedCacheIntegrationTests: XCTestCase {
+
     override func setUp() {
         super.setUp()
         
@@ -24,7 +24,7 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
     
     func test_load_deliversNoItemsOnEmptyCache() {
         let sut = makeFeedLoader()
-        
+
         expect(sut, toLoad: [])
     }
     
@@ -34,6 +34,7 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         let feed = uniqueImageFeed().models
         
         save(feed, with: sutToPerformSave)
+
         expect(sutToPerformLoad, toLoad: feed)
     }
     
@@ -46,9 +47,11 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         
         save(firstFeed, with: sutToPerformFirstSave)
         save(latestFeed, with: sutToPerformLastSave)
-        
+
         expect(sutToPerformLoad, toLoad: latestFeed)
     }
+    
+    // MARK: - LocalFeedImageDataLoader Tests
     
     func test_loadImageData_deliversSavedDataOnASeparateInstance() {
         let imageLoaderToPerformSave = makeImageLoader()
@@ -58,23 +61,19 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         let dataToSave = anyData()
         
         save([image], with: feedLoader)
- 
         save(dataToSave, for: image.url, with: imageLoaderToPerformSave)
+        
         expect(imageLoaderToPerformLoad, toLoad: dataToSave, for: image.url)
-
     }
     
-    // MARK: - LocalFeedImageDataLoader Tests
+    // MARK: - Helpers
     
-    private func makeFeedLoader(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
-
+    private func makeFeedLoader(file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
         let storeURL = testSpecificStoreURL()
         let store = try! CoreDataFeedStore(storeURL: storeURL)
         let sut = LocalFeedLoader(store: store, currentDate: Date.init)
-
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
-
         return sut
     }
     
@@ -86,38 +85,32 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
-
     
     private func save(_ feed: [FeedImage], with loader: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
         let saveExp = expectation(description: "Wait for save completion")
-        
         loader.save(feed) { result in
-            
             if case let Result.failure(error) = result {
-                XCTAssertNil(error, "Expected to save feed successfully")
+                XCTFail("Expected to save feed successfully, got error: \(error)", file: file, line: line)
             }
-            
             saveExp.fulfill()
         }
-        
         wait(for: [saveExp], timeout: 1.0)
     }
     
     private func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
-        
         let exp = expectation(description: "Wait for load completion")
         sut.load { result in
             switch result {
             case let .success(loadedFeed):
                 XCTAssertEqual(loadedFeed, expectedFeed, file: file, line: line)
+                
             case let .failure(error):
                 XCTFail("Expected successful feed result, got \(error) instead", file: file, line: line)
             }
+            
             exp.fulfill()
         }
-        
         wait(for: [exp], timeout: 1.0)
-        
     }
     
     private func save(_ data: Data, for url: URL, with loader: LocalFeedImageDataLoader, file: StaticString = #file, line: UInt = #line) {
@@ -147,8 +140,6 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-
-    
     private func setupEmptyStoreState() {
         deleteStoreArtifacts()
     }
@@ -160,7 +151,6 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
     private func deleteStoreArtifacts() {
         try? FileManager.default.removeItem(at: testSpecificStoreURL())
     }
-
     
     private func testSpecificStoreURL() -> URL {
         return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
@@ -169,4 +159,5 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
     private func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
+
 }

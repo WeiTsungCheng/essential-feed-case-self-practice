@@ -73,8 +73,7 @@ extension LocalFeedImageDataLoader {
         store.insert(data, for: url) { [weak self] result in
             
             guard self != nil else { return }
-            
-            completion(.failure(SaveError.failed))
+            completion(result.mapError { _ in SaveError.failed })
         }
     }
 }
