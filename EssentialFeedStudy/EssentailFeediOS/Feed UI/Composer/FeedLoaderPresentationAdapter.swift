@@ -31,4 +31,3 @@ internal final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
     }
     
 }
-
