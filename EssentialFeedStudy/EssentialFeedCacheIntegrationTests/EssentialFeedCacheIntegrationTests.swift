@@ -149,9 +149,8 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
             }
             validateExp.fulfill()
         }
-        wait(for: [validateExp])
+        wait(for: [validateExp], timeout: 1.0)
     }
-    
     
     private func expect(_ sut: LocalFeedLoader, toLoad expectedFeed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")

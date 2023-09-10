@@ -184,7 +184,7 @@ final class ValidateFeedCacheUseCaseTests: XCTestCase {
         }
         
         action()
-        wait(for: [exp])
+        wait(for: [exp], timeout: 1.0)
         
     }
     
