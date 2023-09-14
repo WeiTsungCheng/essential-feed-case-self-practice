@@ -21,6 +21,7 @@
 		F44DAECD2AAFF744008280E6 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DAECC2AAFF744008280E6 /* FeedLoaderWithFallbackComposite.swift */; };
 		F44DAED02AAFF9BE008280E6 /* FeedImageDataLoaderWithFallbackCompositeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DAECE2AAFF9A4008280E6 /* FeedImageDataLoaderWithFallbackCompositeTest.swift */; };
 		F4A92EE32AB2F22D0000D65E /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A92EE22AB2F22D0000D65E /* FeedImageDataLoaderWithFallbackComposite.swift */; };
+		F4B521812AB328D300958463 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B521802AB328D300958463 /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F44DAECC2AAFF744008280E6 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 		F44DAECE2AAFF9A4008280E6 /* FeedImageDataLoaderWithFallbackCompositeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTest.swift; sourceTree = "<group>"; };
 		F4A92EE22AB2F22D0000D65E /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
+		F4B521802AB328D300958463 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		F403C7872AAD85F800D85F18 /* EssentialAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F4B5217F2AB3288700958463 /* Helpers */,
 				F44DAECA2AAEC1BA008280E6 /* FeedLoaderWithFallbackCompositeTests.swift */,
 				F44DAECE2AAFF9A4008280E6 /* FeedImageDataLoaderWithFallbackCompositeTest.swift */,
 			);
@@ -139,6 +142,14 @@
 				F403C7A22AAD877800D85F18 /* EssentailFeediOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4B5217F2AB3288700958463 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F4B521802AB328D300958463 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			files = (
 				F44DAED02AAFF9BE008280E6 /* FeedImageDataLoaderWithFallbackCompositeTest.swift in Sources */,
 				F44DAECB2AAEC1BA008280E6 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
+				F4B521812AB328D300958463 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
