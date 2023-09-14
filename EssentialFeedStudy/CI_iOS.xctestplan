@@ -12,14 +12,19 @@
     "codeCoverage" : {
       "targets" : [
         {
-          "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+          "containerPath" : "container:EssentialFeedStudy\/EssentialFeedStudy.xcodeproj",
           "identifier" : "F47C3B582A5A9BD200B1F60E",
           "name" : "EssentialFeedStudy"
         },
         {
-          "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+          "containerPath" : "container:EssentialFeedStudy\/EssentialFeedStudy.xcodeproj",
           "identifier" : "F40D62632A8F5145009D2748",
           "name" : "EssentailFeediOS"
+        },
+        {
+          "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+          "identifier" : "F403C76D2AAD85F700D85F18",
+          "name" : "EssentialApp"
         }
       ]
     },
@@ -29,30 +34,37 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "containerPath" : "container:EssentialFeedStudy\/EssentialFeedStudy.xcodeproj",
         "identifier" : "F40D626A2A8F5145009D2748",
         "name" : "EssentailFeediOSTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "containerPath" : "container:EssentialFeedStudy\/EssentialFeedStudy.xcodeproj",
         "identifier" : "F434243E2A8A9BC900CE0ED1",
         "name" : "EssentialFeedCacheIntegrationTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "containerPath" : "container:EssentialFeedStudy\/EssentialFeedStudy.xcodeproj",
         "identifier" : "F4D1F05E2A66D228002859B6",
         "name" : "EssentialFeedStudyAPIEndToEndTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:EssentialFeedStudy.xcodeproj",
+        "containerPath" : "container:EssentialFeedStudy\/EssentialFeedStudy.xcodeproj",
         "identifier" : "F47C3B602A5A9BD200B1F60E",
         "name" : "EssentialFeedStudyTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+        "identifier" : "F403C7832AAD85F800D85F18",
+        "name" : "EssentialAppTests"
       }
     }
   ],
