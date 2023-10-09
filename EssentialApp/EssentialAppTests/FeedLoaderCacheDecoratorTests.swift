@@ -15,7 +15,6 @@ class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
         let feed = uniqueFeed()
         let sut = makeSUT(loaderResult: .success(feed))
 
-        
         expect(sut, toCompleteWith: .success(feed))
     }
     
@@ -53,7 +52,6 @@ class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
     }
     
     private class CacheSpy: FeedCache {
-
         private(set) var messages = [Message]()
         
         enum Message: Equatable {
