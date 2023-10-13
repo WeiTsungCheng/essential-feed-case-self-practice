@@ -19,7 +19,7 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
         
         XCTAssertEqual(app.cells.count, 22)
         XCTAssertEqual(app.cells.firstMatch.images.count, 1)
-
+        
     }
     
 }
