@@ -7,6 +7,7 @@
 
 import UIKit
 import EssentialFeedStudy
+import EssentailFeediOS
 
 public final class FeedUIComposer {
     

@@ -7,7 +7,6 @@
 
 import UIKit
 import EssentialFeedStudy
-import EssentailFeediOS
 import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
