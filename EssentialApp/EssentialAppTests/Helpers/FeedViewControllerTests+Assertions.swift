@@ -12,8 +12,11 @@ import EssentailFeediOS
 extension FeedUIIntegrationTests {
     
     internal func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #file, line: UInt = #line) {
-        sut.tableView.layoutIfNeeded()
-        RunLoop.main.run(until: Date())
+        
+        // It's also important to run the current RunLoop to avoid memory leaks during the test.
+        // If you don't run the RunLoop, some instances might be retained in memory even after the test finishes, which is considered a "test leak".
+        // A test leak can affect the result of other tests, so it's essential to clean the memory within the test context. A reliable test suite runs each test in a clean state.
+        sut.view.enforceLayoutCycle()
         
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
             return XCTFail("Expected \(feed.count) images, got \(sut.numberOfRenderedFeedImageViews()) instead.", file: file, line: line)
@@ -22,6 +25,7 @@ extension FeedUIIntegrationTests {
         feed.enumerated().forEach { index, image in
             assertThat(sut, hasViewConfiguredFor: image, at: index, file: file, line: line)
         }
+        
     }
     
     internal func assertThat(_ sut: FeedViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #file, line: UInt = #line) {
@@ -38,4 +42,5 @@ extension FeedUIIntegrationTests {
         
         XCTAssertEqual(cell.descriptionText, image.description, "Expected description text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
     }
+
 }
