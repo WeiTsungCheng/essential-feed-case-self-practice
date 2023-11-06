@@ -4,5 +4,13 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict/>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F420D4DF2AD8FBF900919C8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

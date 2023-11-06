@@ -1,28 +1,24 @@
 //
-//  FeedViewController.swift
-//  EssentailFeediOS
-//
-//  Created by WEI-TSUNG CHENG on 2023/8/20.
+//  Copyright © 2019 Essential Developer. All rights reserved.
 //
 
 import UIKit
 import EssentialFeedStudy
 
-protocol FeedViewControllerDelegate {
+public protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView, FeedErrorView {
-    
-    var delegate: FeedViewControllerDelegate?
-    
     @IBOutlet private(set) public var errorView: ErrorView?
 
-    var tableModel = [FeedImageCellController]() {
-        didSet {
-            tableView.reloadData()
-        }
+    private var loadingControllers = [IndexPath: FeedImageCellController]()
+    
+    private var tableModel = [FeedImageCellController]() {
+        didSet { tableView.reloadData() }
     }
+
+    public var delegate: FeedViewControllerDelegate?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +26,21 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         refresh()
     }
     
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        tableView.sizeTableHeaderToFit()
+    }
+    
     @IBAction private func refresh() {
         delegate?.didRequestFeedRefresh()
     }
     
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        loadingControllers = [:]
+        tableModel = cellControllers
+    }
+
     public func display(_ viewModel: FeedLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
@@ -41,7 +48,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     public func display(_ viewModel: FeedErrorViewModel) {
         errorView?.message = viewModel.message
     }
-    
+
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModel.count
     }
@@ -51,11 +58,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cellController(forRowAt: indexPath).cancelLoad()
-    }
-    
-    public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        startTask(forRowAt: indexPath)
+        cancelCellControllerLoad(forRowAt: indexPath)
     }
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
@@ -69,19 +72,23 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
     
     private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
-        
-        return tableModel[indexPath.row]
+        let controller = tableModel[indexPath.row]
+        loadingControllers[indexPath] = controller
+        return controller
     }
     
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
+        loadingControllers[indexPath]?.cancelLoad()
+        loadingControllers[indexPath] = nil
+    }
+    
+    public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        startTask(forRowAt: indexPath)
         
-        cellController(forRowAt: indexPath).cancelLoad()
     }
     
     private func startTask(forRowAt indexPath: IndexPath) {
         cellController(forRowAt: indexPath).preload()
     }
-    
-    
-}
 
+}

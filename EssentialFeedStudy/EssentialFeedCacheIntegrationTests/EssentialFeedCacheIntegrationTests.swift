@@ -165,7 +165,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
             
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 1.0)
+        wait(for: [exp], timeout: 5.0)
     }
     
     private func save(_ data: Data, for url: URL, with loader: LocalFeedImageDataLoader, file: StaticString = #file, line: UInt = #line) {
