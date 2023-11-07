@@ -9,10 +9,8 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.wei-tusng.EssentialApp</key>
-		<string>Essential App Prac</string>
+		<string>iOSEssentialStudy</string>
 	</dict>
-	<key>generateAppStoreInformation</key>
-	<false/>
 	<key>method</key>
 	<string>app-store</string>
 	<key>signingStyle</key>
@@ -21,8 +19,6 @@
 	<true/>
 	<key>teamID</key>
 	<string>HA9F856YHB</string>
-	<key>testFlightInternalTestingOnly</key>
-	<false/>
 	<key>uploadSymbols</key>
 	<true/>
 </dict>
