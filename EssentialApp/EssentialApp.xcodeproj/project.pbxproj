@@ -563,8 +563,7 @@
 				CODE_SIGN_IDENTITY = "Apple Distribution: WEI-TSUNG CHENG (HA9F856YHB)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HA9F856YHB;
+				DEVELOPMENT_TEAM = HA9F856YHB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EssentialApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
