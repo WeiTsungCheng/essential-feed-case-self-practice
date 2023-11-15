@@ -27,6 +27,7 @@ internal final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView,
         let model = self.model
         
         cancellable = imageLoader(model.url)
+            .dispatchOnMainQueue()
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                 case .finished: break
@@ -38,7 +39,6 @@ internal final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView,
                 
                 self?.presenter?.didFinishLoadingImageData(with: data, for: model)
             })
-        
     }
     
     func didCancelImageRequest() {
