@@ -1,0 +1,26 @@
+//
+//  ImageCommentsMapper.swift
+//  EssentialFeedStudy
+//
+//  Created by WEI-TSUNG CHENG on 2023/11/15.
+//
+
+import Foundation
+
+internal final class ImageCommentsMapper {
+    
+    private struct Root: Decodable {
+        let items: [RemoteFeedItem]
+    }
+    
+    internal static func map(_ data: Data, from response: HTTPURLResponse) throws -> [RemoteFeedItem] {
+     
+        guard response.isOK, let root = try? JSONDecoder().decode(Root.self, from: data) else {
+            
+            throw RemoteImageCommentLoader.Error.invalidData
+        }
+        
+        return root.items
+    }
+    
+}
