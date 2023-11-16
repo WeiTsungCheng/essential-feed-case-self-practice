@@ -33,7 +33,7 @@ internal final class ImageCommentsMapper {
         decoder.dateDecodingStrategy = .iso8601
         
         guard isOK(response), let root = try? decoder.decode(Root.self, from: data) else {
-            throw RemoteImageCommentLoader.Error.invalidData
+            throw RemoteImageCommentsLoader.Error.invalidData
         }
         
         return root.comments
