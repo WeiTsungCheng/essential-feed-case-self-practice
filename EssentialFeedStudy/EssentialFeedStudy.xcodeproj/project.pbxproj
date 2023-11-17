@@ -309,7 +309,6 @@
 		F41EFE3C2A60F117001043EA /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
-				F4C877D42AA99B7A002A4A16 /* Helpers */,
 				F47C3BA62A5AB5FF00B1F60E /* FeedItemsMapperTests.swift */,
 				F46058852AA7A55500C15BEA /* LoadFeedImageDataFromRemoteUseCaseTests .swift */,
 			);
@@ -610,13 +609,6 @@
 			name = Helpers;
 			path = EssentailFeediOSTests/Helpers;
 			sourceTree = SOURCE_ROOT;
-		};
-		F4C877D42AA99B7A002A4A16 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
 		};
 		F4C877D72AAA3D43002A4A16 /* Helpers */ = {
 			isa = PBXGroup;
