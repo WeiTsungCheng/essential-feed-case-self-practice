@@ -55,18 +55,17 @@ private extension FeedImageDataCache {
     }
 }
 
-
-public extension FeedLoader {
+public extension LocalFeedLoader {
     typealias Publisher = AnyPublisher<[FeedImage], Error>
     
     func loadPublisher() -> Publisher {
-
-        return Deferred {
+        Deferred {
             Future(self.load)
         }
         .eraseToAnyPublisher()
     }
 }
+
 
 extension Publisher {
     func fallback(to fallbackPublisher: @escaping () -> AnyPublisher<Output, Failure>) -> AnyPublisher<Output, Failure> {
