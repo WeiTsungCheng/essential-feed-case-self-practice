@@ -23,7 +23,7 @@ class FeedItemsMapperTests: XCTestCase {
         
     }
     
-    func test_map_throwsErrorOnHTTP200ResponseWithInvalidJSON() throws {
+    func test_map_throwsErrorOnHTTP200ResponseWithInvalidJSON() {
         let invalidJSON = Data("invalid json".utf8)
         
         XCTAssertThrowsError(
@@ -57,11 +57,6 @@ class FeedItemsMapperTests: XCTestCase {
     }
     
     // MARK: - Helpers
-    
-    
-    private func failure(_ error: RemoteFeedLoader.Error) -> RemoteFeedLoader.Result {
-        return .failure(error)
-    }
     
     private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedImage, json: [String: Any]) {
         
