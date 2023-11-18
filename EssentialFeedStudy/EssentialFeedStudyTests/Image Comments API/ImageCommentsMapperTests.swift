@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeedStudy
 
-final class LoadImageCommentsFromRemoteUseCaseTests: XCTestCase {
+final class ImageCommentsMapperTests: XCTestCase {
 
     func test_map_throwsErrorOnNon2xxHTTPResponse() throws {
         let json = makeItemsJSON([])
