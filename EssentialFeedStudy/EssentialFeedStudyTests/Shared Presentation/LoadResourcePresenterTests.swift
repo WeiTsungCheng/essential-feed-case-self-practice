@@ -54,7 +54,7 @@ final class LoadResourcePresenterTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private class ViewSpy: ResourceView, ResourceLoadingView, FeedErrorView {
+    private class ViewSpy: ResourceView, ResourceLoadingView, ResourceErrorView {
         
         typealias ResourceViewModel = String
        
@@ -74,7 +74,7 @@ final class LoadResourcePresenterTests: XCTestCase {
             messages.insert(.display(isLoading: viewModel.isLoading))
         }
         
-        func display(_ viewModel: FeedErrorViewModel) {
+        func display(_ viewModel: ResourceErrorViewModel) {
             messages.insert(.display(errorMessage: viewModel.message))
         }
         
