@@ -1,0 +1,9 @@
+/* 
+  Shared.strings
+  EssentialFeedStudy
+
+  Created by WEI-TSUNG CHENG on 2023/11/19.
+  
+*/
+"GENERIC_CONNECTION_ERROR" = "Couldn't connect to server";
+
