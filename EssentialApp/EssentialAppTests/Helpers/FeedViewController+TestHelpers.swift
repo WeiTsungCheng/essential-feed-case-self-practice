@@ -1,5 +1,5 @@
 //
-//  FeedViewController+TestHelpers.swift
+//  ListViewController+TestHelpers.swift
 //  EssentailFeediOSTests
 //
 //  Created by WEI-TSUNG CHENG on 2023/8/25.
@@ -8,7 +8,7 @@
 import UIKit
 import EssentailFeediOS
 
-internal extension FeedViewController {
+internal extension ListViewController {
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }

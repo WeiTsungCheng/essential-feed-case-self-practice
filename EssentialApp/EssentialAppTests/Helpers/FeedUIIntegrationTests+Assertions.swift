@@ -11,7 +11,7 @@ import EssentailFeediOS
 
 extension FeedUIIntegrationTests {
     
-    internal func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
+    internal func assertThat(_ sut: ListViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
         
         // It's also important to run the current RunLoop to avoid memory leaks during the test.
         // If you don't run the RunLoop, some instances might be retained in memory even after the test finishes, which is considered a "test leak".
@@ -30,7 +30,7 @@ extension FeedUIIntegrationTests {
         executeRunLoopToCleanUpReferences()
     }
     
-    internal func assertThat(_ sut: FeedViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #filePath, line: UInt = #line) {
+    internal func assertThat(_ sut: ListViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #filePath, line: UInt = #line) {
         let view = sut.feedImageView(at: index)
         
         guard let cell = view as? FeedImageCell else {
