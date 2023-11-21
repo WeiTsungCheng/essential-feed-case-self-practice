@@ -46,7 +46,7 @@
 		F45D42952B0A7C5000D00997 /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D42942B0A7C5000D00997 /* ResourceErrorView.swift */; };
 		F45D42982B0BD72200D00997 /* ImageCommentsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D42972B0BD72200D00997 /* ImageCommentsPresenterTest.swift */; };
 		F45D429B2B0BDB2A00D00997 /* ImageCommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D429A2B0BDB2A00D00997 /* ImageCommentsPresenter.swift */; };
-		F45D429E2B0C4E7A00D00997 /* ImageComments.strings in Resources */ = {isa = PBXBuildFile; fileRef = F45D429C2B0C4C7600D00997 /* ImageComments.strings */; };
+		F45D429F2B0C4F1600D00997 /* ImageComments.strings in Resources */ = {isa = PBXBuildFile; fileRef = F45D42A12B0C4F1600D00997 /* ImageComments.strings */; };
 		F460585E2AA4D89400C15BEA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F460585D2AA4D89400C15BEA /* ErrorView.swift */; };
 		F46058632AA4F20000C15BEA /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46058622AA4F20000C15BEA /* UIRefreshControl+Helpers.swift */; };
 		F46058662AA57E2600C15BEA /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46058652AA57E2600C15BEA /* FeedPresenterTests.swift */; };
@@ -179,7 +179,9 @@
 		F45D42942B0A7C5000D00997 /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
 		F45D42972B0BD72200D00997 /* ImageCommentsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsPresenterTest.swift; sourceTree = "<group>"; };
 		F45D429A2B0BDB2A00D00997 /* ImageCommentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsPresenter.swift; sourceTree = "<group>"; };
-		F45D429C2B0C4C7600D00997 /* ImageComments.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ImageComments.strings; sourceTree = "<group>"; };
+		F45D42A02B0C4F1600D00997 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ImageComments.strings; sourceTree = "<group>"; };
+		F45D42A22B0C4F1800D00997 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/ImageComments.strings; sourceTree = "<group>"; };
+		F45D42A32B0C4F1800D00997 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ImageComments.strings"; sourceTree = "<group>"; };
 		F460585D2AA4D89400C15BEA /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		F46058622AA4F20000C15BEA /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
 		F46058652AA57E2600C15BEA /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
@@ -458,7 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				F45D429A2B0BDB2A00D00997 /* ImageCommentsPresenter.swift */,
-				F45D429C2B0C4C7600D00997 /* ImageComments.strings */,
+				F45D42A12B0C4F1600D00997 /* ImageComments.strings */,
 			);
 			path = "Image Comments Presentation";
 			sourceTree = "<group>";
@@ -912,7 +914,7 @@
 			files = (
 				F460586D2AA5CA4800C15BEA /* Feed.strings in Resources */,
 				F45D428B2B0A2AC300D00997 /* Shared.strings in Resources */,
-				F45D429E2B0C4E7A00D00997 /* ImageComments.strings in Resources */,
+				F45D429F2B0C4F1600D00997 /* ImageComments.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,6 +1100,16 @@
 				F45D428F2B0A2ADB00D00997 /* pt-BR */,
 			);
 			name = Shared.strings;
+			sourceTree = "<group>";
+		};
+		F45D42A12B0C4F1600D00997 /* ImageComments.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F45D42A02B0C4F1600D00997 /* en */,
+				F45D42A22B0C4F1800D00997 /* el */,
+				F45D42A32B0C4F1800D00997 /* pt-BR */,
+			);
+			name = ImageComments.strings;
 			sourceTree = "<group>";
 		};
 		F460586B2AA5CA4200C15BEA /* Feed.strings */ = {
