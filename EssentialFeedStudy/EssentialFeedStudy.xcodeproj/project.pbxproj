@@ -305,6 +305,7 @@
 		F40D62652A8F5145009D2748 /* EssentailFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				F45D42AC2B0D28AB00D00997 /* Shared UI */,
 				F4E3337A2A986A540060451D /* Feed UI */,
 			);
 			path = EssentailFeediOS;
@@ -475,14 +476,47 @@
 			path = "Feed UI";
 			sourceTree = "<group>";
 		};
+		F45D42AC2B0D28AB00D00997 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				F45D42AD2B0D28BE00D00997 /* Controllers */,
+				F45D42AF2B0D291D00D00997 /* Views */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		F45D42AD2B0D28BE00D00997 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F406B4992A92308000EFD3E9 /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F45D42AF2B0D291D00D00997 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F45D42B02B0D298B00D00997 /* Helpers */,
+				F460585D2AA4D89400C15BEA /* ErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F45D42B02B0D298B00D00997 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F46058622AA4F20000C15BEA /* UIRefreshControl+Helpers.swift */,
+				F4E3339B2A9F35CB0060451D /* UITableView+Dequeueing.swift */,
+				F4C679DA2ADD6FD000D33F7C /* UITableView+HeaderSizing.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F46058612AA4EF1F00C15BEA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				F406B49D2A93502000EFD3E9 /* UIView+Shimmering.swift */,
-				F4E3339B2A9F35CB0060451D /* UITableView+Dequeueing.swift */,
 				F4E3339D2A9F36AA0060451D /* UIImageView+Animations.swift */,
-				F46058622AA4F20000C15BEA /* UIRefreshControl+Helpers.swift */,
-				F4C679DA2ADD6FD000D33F7C /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -665,7 +699,6 @@
 			children = (
 				F46058612AA4EF1F00C15BEA /* Helpers */,
 				F406B49B2A9244A600EFD3E9 /* FeedImageCell.swift */,
-				F460585D2AA4D89400C15BEA /* ErrorView.swift */,
 				F4E333972A9E2AA40060451D /* Feed.storyboard */,
 				F4E333992A9E2AB90060451D /* Feed.xcassets */,
 			);
@@ -675,7 +708,6 @@
 		F4E333702A985D000060451D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F406B4992A92308000EFD3E9 /* ListViewController.swift */,
 				F4E333852A98EA590060451D /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
