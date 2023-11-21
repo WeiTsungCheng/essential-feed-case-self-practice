@@ -5,16 +5,11 @@
 import UIKit
 import EssentialFeedStudy
 
-public protocol FeedViewControllerDelegate {
-    func didRequestFeedRefresh()
-}
-
 public protocol CellController {
     func view(in tableView: UITableView) -> UITableViewCell
     func preload()
     func cancelLoad()
 }
-
 
 public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     @IBOutlet private(set) public var errorView: ErrorView?
@@ -25,7 +20,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         didSet { tableView.reloadData() }
     }
 
-    public var delegate: FeedViewControllerDelegate?
+    public var onRefresh: (() -> Void)?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +35,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     }
     
     @IBAction private func refresh() {
-        delegate?.didRequestFeedRefresh()
+       onRefresh?()
     }
     
     public func display(_ cellControllers: [CellController]) {
