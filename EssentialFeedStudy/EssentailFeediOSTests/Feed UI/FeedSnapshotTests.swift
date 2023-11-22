@@ -9,7 +9,6 @@ import XCTest
 @testable import EssentialFeedStudy
 import EssentailFeediOS
 
-
 class FeedSnapshotTests: XCTestCase {
     
     func test_emptyFeed() {
