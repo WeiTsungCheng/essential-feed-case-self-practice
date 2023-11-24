@@ -13,7 +13,7 @@ public protocol FeedImageCellControllerDelegate {
     func didCancelImageRequest()
 }
 
-public final class FeedImageCellController: NSObject, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
+public final class FeedImageCellController: NSObject {
 
     public typealias ResourceViewModel = UIImage
     
@@ -26,6 +26,9 @@ public final class FeedImageCellController: NSObject, UITableViewDataSource, UIT
         self.delegate = delegate
     }
     
+}
+
+extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     private func releaseCellForReuse() {
         cell = nil
     }
@@ -40,7 +43,11 @@ public final class FeedImageCellController: NSObject, UITableViewDataSource, UIT
         cell?.locationContainer.isHidden = !viewModel.hasLocation
         cell?.locationLabel.text = viewModel.location
         cell?.descriptionLabel.text = viewModel.description
-        cell?.onRetry = delegate.didRequestImage
+        
+        cell?.onRetry = { [weak self] in
+            self?.delegate.didRequestImage()
+        }
+        
         cell?.onReuse = { [weak self] in
             self?.releaseCellForReuse()
         }
