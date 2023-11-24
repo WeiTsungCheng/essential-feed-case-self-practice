@@ -15,6 +15,7 @@ public final class ErrorView: UIButton {
     }
     
     public var onHide: (() -> Void)?
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -29,6 +30,7 @@ public final class ErrorView: UIButton {
         
         addTarget(self, action: #selector(hideMessageAnimated), for: .touchUpInside)
         configurable()
+        hideMessage()
     }
     
     private func configurable() {
@@ -66,7 +68,7 @@ public final class ErrorView: UIButton {
             withDuration: 0.25) {
                 self.alpha = 0
             } completion: { completed in
-                if completed {  }
+                if completed { self.hideMessage() }
             }
     }
     

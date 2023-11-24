@@ -19,6 +19,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureErrorView()
         refresh()
     }
     
@@ -27,6 +28,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         container.backgroundColor = .clear
         container.addSubview(errorView)
         
+        errorView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             errorView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
