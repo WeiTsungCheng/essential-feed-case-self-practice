@@ -8,7 +8,14 @@
 import UIKit
 import EssentailFeediOS
 
-internal extension ListViewController {
+extension ListViewController {
+    // 把 tableview 的 frame 設的超級小 讓 image 不會在ㄧ開始時就被 load, 直到呼叫它的方法
+    public override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+        
+        tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+    }
+    
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }
@@ -62,7 +69,7 @@ internal extension ListViewController {
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
-        return tableView.numberOfRows(inSection: feedImagesSection)
+        return tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
     }
     
     func feedImageView(at row: Int) -> UITableViewCell? {
