@@ -29,9 +29,6 @@ public final class FeedImageCellController: NSObject {
 }
 
 extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
-    private func releaseCellForReuse() {
-        cell = nil
-    }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -43,6 +40,7 @@ extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, U
         cell?.locationContainer.isHidden = !viewModel.hasLocation
         cell?.locationLabel.text = viewModel.location
         cell?.descriptionLabel.text = viewModel.description
+        cell?.feedImageView.image = nil
         
         cell?.onRetry = { [weak self] in
             self?.delegate.didRequestImage()
@@ -54,6 +52,11 @@ extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, U
         delegate.didRequestImage()
         
         return cell!
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cancelLoad()
     }
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
@@ -69,6 +72,10 @@ extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, U
         delegate.didCancelImageRequest()
     }
     
+    private func releaseCellForReuse() {
+        cell = nil
+    }
+
 }
 
 
