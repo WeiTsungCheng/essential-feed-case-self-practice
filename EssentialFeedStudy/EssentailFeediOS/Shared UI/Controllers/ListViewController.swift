@@ -68,7 +68,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let dl = cellController(at: indexPath)?.delegate
-        dl?.tableView?(tableView, didEndEditingRowAt: indexPath)
+        dl?.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath)
     }
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
