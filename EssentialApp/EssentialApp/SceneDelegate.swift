@@ -87,11 +87,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeRemoteLoadMoreLoader(last: FeedImage?) -> AnyPublisher<Paginated<FeedImage>, Error> {
-        makeRemoteFeedLoader(last: last)
-          .zip(localFeedLoader.loadPublisher())
-          .map { (newItems, cachedItems) in
-              (cachedItems + newItems, newItems.last)
-          }.map(makePage)
+        localFeedLoader.loadPublisher()
+            .zip(makeRemoteFeedLoader(last: last))
+            .map { (cachedItems, newItems) in
+                (cachedItems + newItems, newItems.last)
+            }.map(makePage)
             .caching(to: localFeedLoader)
     }
     
