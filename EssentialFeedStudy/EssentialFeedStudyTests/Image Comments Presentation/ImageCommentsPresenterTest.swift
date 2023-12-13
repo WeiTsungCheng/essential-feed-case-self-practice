@@ -14,13 +14,6 @@ final class ImageCommentsPresenterTest: XCTestCase {
         XCTAssertEqual(ImageCommentsPresenter.title, localized("IMAGE_COMMENTS_VIEW_TITLE"))
     }
     
-    func test_localizedStrings_haveKeysAndValuesForAllSupportedLocalizations() {
-        let table = "ImageComments"
-        let bundle = Bundle(for: ImageCommentsPresenter.self)
-        assertLocalizedKeyAndValuesExist(in: bundle, table)
-
-    }
-    
     func test_map_createsViewModel() {
         let now = Date()
         let calendar = Calendar(identifier: .gregorian)
