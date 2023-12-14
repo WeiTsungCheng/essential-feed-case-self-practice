@@ -437,6 +437,23 @@
 			path = EssentialFeedCacheIntegrationTests;
 			sourceTree = "<group>";
 		};
+		F44E6BE62B2AA407004412A3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F45D42C82B0DFB3C00D00997 /* ImageCommentCellController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F44E6BE72B2AA423004412A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F45D42C62B0DE66900D00997 /* ImageComments.storyboard */,
+				F45D42CA2B0DFB9500D00997 /* ImageCommentCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F45D426C2B04FE2A00D00997 /* Image Comments Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,9 +642,8 @@
 		F45D42C52B0DE62D00D00997 /* Image Comments UI */ = {
 			isa = PBXGroup;
 			children = (
-				F45D42C62B0DE66900D00997 /* ImageComments.storyboard */,
-				F45D42C82B0DFB3C00D00997 /* ImageCommentCellController.swift */,
-				F45D42CA2B0DFB9500D00997 /* ImageCommentCell.swift */,
+				F44E6BE62B2AA407004412A3 /* Controllers */,
+				F44E6BE72B2AA423004412A3 /* Views */,
 			);
 			path = "Image Comments UI";
 			sourceTree = "<group>";
