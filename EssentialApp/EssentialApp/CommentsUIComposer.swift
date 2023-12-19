@@ -16,21 +16,20 @@ public final class CommentsUIComposer {
     
     private typealias CommentPresentationAdapter = LoadResourcePresentationAdapter<[ImageComment], CommentsViewAdapter>
     
-    
     public static func commentsComposedWith(commentsLoader: @escaping () -> AnyPublisher<[ImageComment], Error>) -> ListViewController {
         let presentationAdapter = CommentPresentationAdapter(loader: commentsLoader)
         
-        let feedController = makeCommentsViewController(title: ImageCommentsPresenter.title)
-        feedController.onRefresh = presentationAdapter.loadResource
+        let commentsController = makeCommentsViewController(title: ImageCommentsPresenter.title)
+        commentsController.onRefresh = presentationAdapter.loadResource
         
         presentationAdapter.presenter = LoadResourcePresenter(
             resourceView: CommentsViewAdapter(
-                controller: feedController),
-            loadingView: WeakRefVirtualProxy(feedController),
-            errorView: WeakRefVirtualProxy(feedController),
+                controller: commentsController),
+            loadingView: WeakRefVirtualProxy(commentsController),
+            errorView: WeakRefVirtualProxy(commentsController),
             mapper: { ImageCommentsPresenter.map($0) })
         
-        return feedController
+        return commentsController
     }
     
     private static func makeCommentsViewController(title: String) -> ListViewController {
