@@ -46,6 +46,7 @@ extension ListViewController {
         guard numberOfRows(in: section) > row else {
             return nil
         }
+    
         let ds = tableView.dataSource
         let index = IndexPath(row: row, section: section)
         return ds?.tableView(tableView, cellForRowAt: index)
@@ -96,7 +97,7 @@ extension ListViewController {
     }
     
     func simulateTapOnFeedImage(at row: Int) {
-        let view = simulateFeedImageViewVisible(at: row)
+        
         let delegate = tableView.delegate
         let index = IndexPath(row: row, section: feedImagesSection)
         delegate?.tableView?(tableView, didSelectRowAt: index)
@@ -170,4 +171,3 @@ extension ListViewController {
 
   
 }
-

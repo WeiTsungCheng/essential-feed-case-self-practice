@@ -29,15 +29,17 @@ public class LoadMoreCellController: NSObject, UITableViewDataSource, UITableVie
     public func tableView(_ tableView: UITableView, willDisplay: UITableViewCell, forRowAt indexPath: IndexPath) {
         reloadIfNeeded()
         
-        offsetObserver = tableView.observe(\.contentOffset, changeHandler: { tableView, _ in
+        offsetObserver = tableView.observe(\.contentOffset, changeHandler: { [weak self] (tableView, _) in
             guard tableView.isDragging else { return }
-            self.reloadIfNeeded()
+            self?.reloadIfNeeded()
         })
     }
+    
     
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         offsetObserver = nil
     }
+    
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         reloadIfNeeded()
@@ -55,7 +57,7 @@ extension LoadMoreCellController: ResourceLoadingView, ResourceErrorView {
         cell.isLoading = viewModel.isLoading
     }
     
-    public func display(_ viewModel: EssentialFeedStudy.ResourceErrorViewModel) {
+    public func display(_ viewModel: ResourceErrorViewModel) {
         cell.message = viewModel.message
     }
 }

@@ -15,6 +15,8 @@
 		F403C7A82AAD877D00D85F18 /* EssentialFeedStudy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F403C7A62AAD877D00D85F18 /* EssentialFeedStudy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F403C7AA2AAD878800D85F18 /* EssentailFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F403C7A92AAD878800D85F18 /* EssentailFeediOS.framework */; };
 		F403C7AB2AAD878800D85F18 /* EssentailFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F403C7A92AAD878800D85F18 /* EssentailFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F44E6BEB2B2AD43E004412A3 /* CommentsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E6BEA2B2AD43E004412A3 /* CommentsViewAdapter.swift */; };
+		F44E6BFA2B326B69004412A3 /* NullStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E6BF92B326B69004412A3 /* NullStore.swift */; };
 		F45D42652B0453A100D00997 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D42642B0453A100D00997 /* CombineHelpers.swift */; };
 		F45D42EF2B1A575300D00997 /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D42EE2B1A575300D00997 /* CommentsUIIntegrationTests.swift */; };
 		F45D42F12B1B092C00D00997 /* CommentsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D42F02B1B092C00D00997 /* CommentsUIComposer.swift */; };
@@ -76,6 +78,8 @@
 		F403C7A22AAD877800D85F18 /* EssentailFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentailFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F403C7A62AAD877D00D85F18 /* EssentialFeedStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeedStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F403C7A92AAD878800D85F18 /* EssentailFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentailFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44E6BEA2B2AD43E004412A3 /* CommentsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewAdapter.swift; sourceTree = "<group>"; };
+		F44E6BF92B326B69004412A3 /* NullStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStore.swift; sourceTree = "<group>"; };
 		F45D42642B0453A100D00997 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		F45D42EE2B1A575300D00997 /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
 		F45D42F02B1B092C00D00997 /* CommentsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIComposer.swift; sourceTree = "<group>"; };
@@ -148,12 +152,14 @@
 			children = (
 				F403C7712AAD85F700D85F18 /* AppDelegate.swift */,
 				F403C7732AAD85F700D85F18 /* SceneDelegate.swift */,
-				F4E0083D2ADA94CD001E58D8 /* FeedUIComposer.swift */,
-				F45D42F02B1B092C00D00997 /* CommentsUIComposer.swift */,
 				F4E0083F2ADA94CD001E58D8 /* WeakRefVirtualProxy.swift */,
 				F4E008412ADA94CD001E58D8 /* LoadResourcePresentationAdapter.swift */,
-				F4E008422ADA94CD001E58D8 /* FeedViewAdapter.swift */,
 				F45D42642B0453A100D00997 /* CombineHelpers.swift */,
+				F4E0083D2ADA94CD001E58D8 /* FeedUIComposer.swift */,
+				F4E008422ADA94CD001E58D8 /* FeedViewAdapter.swift */,
+				F45D42F02B1B092C00D00997 /* CommentsUIComposer.swift */,
+				F44E6BEA2B2AD43E004412A3 /* CommentsViewAdapter.swift */,
+				F44E6BF92B326B69004412A3 /* NullStore.swift */,
 				F403C77A2AAD85F800D85F18 /* Assets.xcassets */,
 				F403C77C2AAD85F800D85F18 /* LaunchScreen.storyboard */,
 				F403C77F2AAD85F800D85F18 /* Info.plist */,
@@ -309,7 +315,9 @@
 			files = (
 				F4E008472ADA94E2001E58D8 /* FeedUIComposer.swift in Sources */,
 				F403C7722AAD85F700D85F18 /* AppDelegate.swift in Sources */,
+				F44E6BFA2B326B69004412A3 /* NullStore.swift in Sources */,
 				F4E008462ADA94E2001E58D8 /* FeedViewAdapter.swift in Sources */,
+				F44E6BEB2B2AD43E004412A3 /* CommentsViewAdapter.swift in Sources */,
 				F4E008452ADA94E2001E58D8 /* LoadResourcePresentationAdapter.swift in Sources */,
 				F403C7742AAD85F700D85F18 /* SceneDelegate.swift in Sources */,
 				F4E008492ADA94E2001E58D8 /* WeakRefVirtualProxy.swift in Sources */,
