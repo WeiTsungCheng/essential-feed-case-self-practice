@@ -16,6 +16,23 @@ public final class LocalFeedImageDataLoader: FeedImageDataLoader {
     }
 }
 
+extension LocalFeedImageDataLoader: FeedImageDataCache {
+  
+    public enum SaveError: Error {
+        case failed
+    }
+    
+    public func save(_ data: Data, for url: URL) throws {
+        do {
+            try store.insert(data, for: url)
+        } catch {
+            throw SaveError.failed
+        }
+        
+    }
+}
+
+
 extension LocalFeedImageDataLoader {
     
     public enum LoadError: Swift.Error {
@@ -60,18 +77,3 @@ extension LocalFeedImageDataLoader {
     
 }
 
-extension LocalFeedImageDataLoader: FeedImageDataCache {
-    public typealias SaveResult = FeedImageDataCache.Result
-    
-    public enum SaveError: Error {
-        case failed
-    }
-    
-    public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
-    
-        completion(SaveResult(catching: {
-            try store.insert(data, for: url)
-        }).mapError { _ in SaveError.failed})
-
-    }
-}
