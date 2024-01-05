@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class LocalFeedImageDataLoader: FeedImageDataLoader {
+public final class LocalFeedImageDataLoader {
     
     private let store: FeedImageDataStore
     
@@ -33,46 +33,25 @@ extension LocalFeedImageDataLoader: FeedImageDataCache {
 }
 
 
-extension LocalFeedImageDataLoader {
+extension LocalFeedImageDataLoader: FeedImageDataLoader {
     
     public enum LoadError: Swift.Error {
         case failed
         case notFound
     }
     
-    private final class LoadImageDataTask: FeedImageDataLoaderTask {
-        private var completion: ((FeedImageDataLoader.Result) -> Void)?
-        
-        public init(_ completion: (@escaping (FeedImageDataLoader.Result) -> Void)) {
-            self.completion = completion
-        }
-        
-        public func complete(with result: FeedImageDataLoader.Result) {
-            completion?(result)
-        }
-        
-        public func cancel() {
-            preventFurtherCompletion()
-        }
-        
-        private func preventFurtherCompletion() {
-            completion = nil
-        }
-    }
+    public func loadImageData(from url: URL) throws -> Data {
     
-    public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> EssentialFeedStudy.FeedImageDataLoaderTask {
-        
-        let task = LoadImageDataTask(completion)
-        
-        task.complete(with: Swift.Result {
-                try store.retrieve(dataForURL: url)
+        do { 
+            if let imageData = try store.retrieve(dataForURL: url) {
+                return imageData
             }
-            .mapError{ _ in LoadError.failed}
-            .flatMap{ data in
-                data.map { .success($0) } ?? .failure(LoadError.notFound)
-            })
+            
+        } catch {
+            throw LoadError.failed
+        }
         
-        return task
+        throw LoadError.notFound
     }
     
 }
