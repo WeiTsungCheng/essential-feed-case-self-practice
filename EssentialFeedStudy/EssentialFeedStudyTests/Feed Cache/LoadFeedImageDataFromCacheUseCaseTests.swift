@@ -71,7 +71,7 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         
         action()
         
-        var receivedResult = Result {
+        let receivedResult = Result {
             try sut.loadImageData(from: anyURL())
         }
         
