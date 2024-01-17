@@ -86,7 +86,7 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         
         let (sut, store) = makeSUT()
         store.completeRetrieval(with: anyNSError())
-        try? sut.load()
+        try? _ = sut.load()
         
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
