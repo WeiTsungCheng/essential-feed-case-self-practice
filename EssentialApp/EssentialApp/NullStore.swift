@@ -12,17 +12,11 @@ class NullStore {}
 
 extension NullStore: FeedStore {
     
-    func insert(_ feed: [EssentialFeedStudy.LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        completion(.success(()))
-    }
+    func insert(_ feed: [EssentialFeedStudy.LocalFeedImage], timestamp: Date) throws {}
     
-    func retrieve(completion: @escaping RetrievalCompletion) {
-        completion(.success(.none))
-    }
+    func retrieve() throws -> CachedFeed? { .none }
     
-    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        completion(.success(()))
-    }
+    func deleteCachedFeed() throws {}
     
 }
 
